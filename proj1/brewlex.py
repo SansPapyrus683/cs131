@@ -99,28 +99,28 @@ t_DOT = r"."
 
 
 def t_NUMBER(t):
-    r"\d+"
+    r"""\d+"""
     t.value = int(t.value)
     return t
 
 
 def t_NAME(t):
-    r"[A-Za-z_][\w_]*"
+    r"""[A-Za-z_][\w_]*"""
     t.type = reserved_map.get(t.value, "NAME")
     return t
 
 def t_newline(t):
-    r"\n+"
+    r"""\n+"""
     t.lexer.lineno += t.value.count("\n")
 
 
 def t_comment(t):
-    r"/\*(.|\n)*?\*/"
+    r"""/\*(.|\n)*?\*/"""
     t.lexer.lineno += t.value.count("\n")
 
 
 def t_STRING(t):
-    r'".*?"'
+    r"""".*?\""""
     t.value = t.value[1:-1]
     return t
 

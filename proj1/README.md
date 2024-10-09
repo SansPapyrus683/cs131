@@ -1,5 +1,8 @@
 # CS 131 Fall 2024: Project Starter
 
+kevin here- the code here is built off of [this here repo](https://github.com/UCLA-CS-131/fall-24-project-starter)
+so like the readme and everything is copied from there alright k bye
+
 Hey there! This is a template repository that contains the necessary boilerplate for [CS 131](https://ucla-cs-131.github.io/fall-24-website/)'s quarter-long project: making an interpreter. The project specs are as follows:
 
 1. [Project 1 Spec](https://docs.google.com/document/d/1npomXM55cXg9Af7BUXEj3_bFpj1sy2Jty2Nwi6Kp64E/edit?usp=sharing)

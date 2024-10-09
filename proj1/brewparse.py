@@ -147,19 +147,19 @@ def p_catches(p):
     collapse_items(p, 1, 2)
 
 def p_catch(p):
-    "catch : CATCH STRING LBRACE statements RBRACE"
+    """catch : CATCH STRING LBRACE statements RBRACE"""
     p[0] = Element(InterpreterBase.CATCH_NODE, exception_type=p[2], statements=p[4])
 
 def p_statement_for(p):
-    "statement : FOR LPAREN assign SEMI expression SEMI assign RPAREN LBRACE statements RBRACE"
+    """statement : FOR LPAREN assign SEMI expression SEMI assign RPAREN LBRACE statements RBRACE"""
     p[0] = Element(InterpreterBase.FOR_NODE, init=p[3], condition=p[5], update=p[7], statements=p[10])
 
 def p_statement_raise(p):
-    "statement : RAISE expression SEMI"
+    """statement : RAISE expression SEMI"""
     p[0] = Element(InterpreterBase.RAISE_NODE, exception_type=p[2])
 
 def p_statement_expr(p):
-    "statement : expression SEMI"
+    """statement : expression SEMI"""
     p[0] = p[1]
 
 
@@ -174,16 +174,16 @@ def p_statement_return(p):
 
 
 def p_expression_not(p):
-    "expression : NOT expression"
+    """expression : NOT expression"""
     p[0] = Element(InterpreterBase.NOT_NODE, op1=p[2])
 
 
 def p_expression_uminus(p):
-    "expression : MINUS expression %prec UMINUS"
+    """expression : MINUS expression %prec UMINUS"""
     p[0] = Element(InterpreterBase.NEG_NODE, op1=p[2])
 
 def p_expression_new(p):
-    "expression : NEW NAME"
+    """expression : NEW NAME"""
     p[0] = Element(InterpreterBase.NEW_NODE, var_type=p[2])
 
 
@@ -202,7 +202,7 @@ def p_arith_expression_binop(p):
 
 
 def p_expression_group(p):
-    "expression : LPAREN expression RPAREN"
+    """expression : LPAREN expression RPAREN"""
     p[0] = p[2]
 
 
@@ -213,7 +213,7 @@ def p_expression_and_or(p):
 
 
 def p_expression_number(p):
-    "expression : NUMBER"
+    """expression : NUMBER"""
     p[0] = Element(InterpreterBase.INT_NODE, val=p[1])
 
 
@@ -225,17 +225,17 @@ def p_expression_bool(p):
 
 
 def p_expression_nil(p):
-    "expression : NIL"
+    """expression : NIL"""
     p[0] = Element(InterpreterBase.NIL_NODE)
 
 
 def p_expression_string(p):
-    "expression : STRING"
+    """expression : STRING"""
     p[0] = Element(InterpreterBase.STRING_NODE, val=p[1])
 
 
 def p_expression_variable(p):
-    "expression : variable_w_dot"
+    """expression : variable_w_dot"""
     p[0] = Element(InterpreterBase.VAR_NODE, name=p[1])
 
 
