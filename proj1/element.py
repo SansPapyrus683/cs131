@@ -10,7 +10,7 @@ class Element:
             return None
         return self.dict[key]
 
-    def __str__(self):
+    def __repr__(self):
         s = f"{self.elem_type}: "
         for key, value in self.dict.items():
             s += key + ": " + self.__val(value) + ", "
