@@ -39,21 +39,20 @@ class InterpreterBase:
     NIL_DEF = "nil"
     VOID_DEF = "void"
     
-    # methods
     def __init__(self, console_output=True, inp=None):
         self.console_output = console_output
         self.inp = inp  # if not none, then read input from passed-in list
         self.reset()
 
-    # Call to reset I/O for another run of the program
     def reset(self):
+        """Reset I/O for another run of the program"""
         self.output_log = []
         self.input_cursor = 0
         self.error_type = None
         self.error_line = None
 
-    # Students must implement this in their derived class
     def run(self, program):
+        """Implemented in Interpreter subclass"""
         pass
 
     def get_input(self):
@@ -66,8 +65,8 @@ class InterpreterBase:
             return cur_input
         return None
 
-    # students must call this for any errors that they run into
     def error(self, error_type, description=None, line_num=None):
+        """This is called when the program runs into any errors."""
         # log the error before we throw
         self.error_line = line_num
         self.error_type = error_type

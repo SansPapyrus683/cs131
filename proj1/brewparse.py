@@ -45,7 +45,7 @@ def p_fields(p):
    collapse_items(p, 1, 2)  # 2 -> field
 
 def p_field(p):
-  "field : NAME COLON NAME SEMI"  # field_name: type
+  """field : NAME COLON NAME SEMI"""  # field_name: type
   p[0] = Element(InterpreterBase.FIELD_DEF_NODE, name=p[1], var_type=p[3])
 
 def p_funcs(p):
